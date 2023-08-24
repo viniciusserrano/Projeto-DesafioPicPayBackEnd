@@ -1,4 +1,4 @@
-# DesafioPicPay
+# Desafio PicPay
 
 Plataforma com usuários comuns e lojistas realizando transferências de dinheiro, incluindo validações, consulta de autorização externa e notificações em um serviço RESTFul.
 | 💾 Project | Vinicius Serrano    |

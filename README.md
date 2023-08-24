@@ -10,7 +10,9 @@ Plataforma com usuários comuns e lojistas realizando transferências de dinheir
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![](getUser.png#vitrinedev)
+--------------------------------
 ![](postUser.png#vitrinedev)
+--------------------------------
 ![](Posttransaction.png#vitrinedev)
 
 ## Detalhes do projeto

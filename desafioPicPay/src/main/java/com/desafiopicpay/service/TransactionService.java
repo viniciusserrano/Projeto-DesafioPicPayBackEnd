@@ -50,18 +50,25 @@ public class TransactionService {
         newTransaction.setReceiver(receiver);
         newTransaction.setTimeStamp(LocalDateTime.now());
 
-        sender.setBalance(sender.getBalance().subtract(transactionDto.value()));
-        receiver.setBalance(receiver.getBalance().add(transactionDto.value()));
+        updateBalances(sender, receiver, transactionDto.value());
 
         this.transactionDao.save(newTransaction);
         this.userService.saveUser(sender);
         this.userService.saveUser(receiver);
 
-        this.notificationService.sendNotification(sender, "Transação realizada com sucesso ");
-
-        this.notificationService.sendNotification(receiver, "Transação recebida com sucesso ");
+        sendTransactionNotifications(sender, receiver);
 
         return newTransaction;
+    }
+
+    private void updateBalances(User sender, User receiver, BigDecimal amount) {
+        sender.setBalance(sender.getBalance().subtract(amount));
+        receiver.setBalance(receiver.getBalance().add(amount));
+    }
+
+    private void sendTransactionNotifications(User sender, User receiver) throws Exception {
+        notificationService.sendNotification(sender, "Transação realizada com sucesso");
+        notificationService.sendNotification(receiver, "Transação recebida com sucesso");
     }
 
     public Boolean authorizeTransaction(User sender, BigDecimal value) {

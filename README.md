@@ -9,8 +9,9 @@ Plataforma com usuários comuns e lojistas realizando transferências de dinheir
 | :fire: Desafio     | O desafio reside em implementar um sistema que gerencie transferências de dinheiro entre usuários e lojistas, considerando validações de dados, consulta de serviço externo e notificações, dentro de uma arquitetura RESTFul.
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](BDImage.png#vitrinedev)
-![](CadastrarProduto.png#vitrinedev)
+![](getUser.png#vitrinedev)
+![](postUser.png#vitrinedev)
+![](Posttransaction.png#vitrinedev)
 
 ## Detalhes do projeto
 

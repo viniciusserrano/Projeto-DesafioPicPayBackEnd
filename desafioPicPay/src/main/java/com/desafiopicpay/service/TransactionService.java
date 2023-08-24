@@ -4,6 +4,7 @@ import com.desafiopicpay.repository.dao.TransactionDao;
 import com.desafiopicpay.repository.dto.TransactionDto;
 import com.desafiopicpay.repository.entity.Transaction;
 import com.desafiopicpay.repository.entity.User;
+import com.desafiopicpay.service.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,14 +30,17 @@ public class TransactionService {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    UserValidator userValidator;
+
     public Transaction createTransaction(TransactionDto transactionDto) throws Exception {
         User sender = this.userService.findUserById(transactionDto.senderId());
         User receiver = this.userService.findUserById(transactionDto.receiverId());
 
-        userService.validateTransaction(sender, transactionDto.value());
+        userValidator.validateTransaction(sender, transactionDto.value());
 
         boolean isAuthorized = this.authorizeTransaction(sender, transactionDto.value());
-        if(!isAuthorized){
+        if (!isAuthorized) {
             throw new Exception("Transação não autorizada");
         }
 
@@ -59,12 +63,13 @@ public class TransactionService {
 
         return newTransaction;
     }
-    public Boolean authorizeTransaction(User sender, BigDecimal value){
+
+    public Boolean authorizeTransaction(User sender, BigDecimal value) {
         ResponseEntity<Map> authorizationResponse = restTemplate.getForEntity("https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6", Map.class);
 
-        if(authorizationResponse.getStatusCode() == HttpStatus.OK){
+        if (authorizationResponse.getStatusCode() == HttpStatus.OK) {
             String message = (String) authorizationResponse.getBody().get("message");
             return "Autorizado".equalsIgnoreCase(message);
-        }else return false;
+        } else return false;
     }
 }

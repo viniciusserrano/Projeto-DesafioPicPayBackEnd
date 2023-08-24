@@ -4,7 +4,7 @@ Plataforma com usuários comuns e lojistas realizando transferências de dinheir
 | 💾 Project | Vinicius Serrano    |
 | -------------  | --- |
 | :sparkles: Nome        | **PicPay - BackEnd**
-| :label: Tecnologias | Java, H2DataBase, Lombok, Maven, "Jpa-Hibernate"
+| :label: Tecnologias | Java, SpringBoot, H2DataBase, Lombok, Maven, "Jpa-Hibernate"
 | :rocket: URL         | [Java / Desafio / POO](https://github.com/viniciusserrano/Projeto-DesafioPicPayBackEnd)
 | :fire: Desafio     | O desafio reside em implementar um sistema que gerencie transferências de dinheiro entre usuários e lojistas, considerando validações de dados, consulta de serviço externo e notificações, dentro de uma arquitetura RESTFul.
 

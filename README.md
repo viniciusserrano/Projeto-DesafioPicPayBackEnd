@@ -10,9 +10,9 @@ Plataforma com usuários comuns e lojistas realizando transferências de dinheir
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![](getUser.png#vitrinedev)
---------------------------------
+<br>
 ![](postUser.png#vitrinedev)
-| 💾 Project | Vinicius Serrano    |
+<br>
 ![](Posttransaction.png#vitrinedev)
 
 ## Detalhes do projeto
